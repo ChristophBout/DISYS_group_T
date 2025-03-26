@@ -9,11 +9,6 @@ public class EnergyCurrent {
         this.gridPortion = gridPortion;
     }
 
-    public EnergyCurrent() {
-
-    }
-
-
     public double getCommunityPoolUsed() {
         return communityPoolUsed;
     }

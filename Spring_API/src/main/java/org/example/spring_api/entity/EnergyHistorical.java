@@ -11,10 +11,6 @@ public class EnergyHistorical {
         this.gridUsed = gridUsed;
     }
 
-    public EnergyHistorical() {
-
-    }
-
     public double getCommunityProduced() {
         return communityProduced;
     }
