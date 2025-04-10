@@ -1,4 +1,4 @@
-package projectinterface.projectinterface;
+package projectinterface;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
