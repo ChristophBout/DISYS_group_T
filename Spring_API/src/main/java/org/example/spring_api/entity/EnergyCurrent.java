@@ -1,20 +1,21 @@
 package org.example.spring_api.entity;
 
 public class EnergyCurrent {
-    private double communityPoolUsed; // in percent
-    private double gridPortion;       // in percent
 
-    public EnergyCurrent(double communityPoolUsed, double gridPortion) {
-        this.communityPoolUsed = communityPoolUsed;
+    private double communityPool; // Prozent der Community
+    private double gridPortion;   // Prozent vom Grid
+
+    public EnergyCurrent(double communityPool, double gridPortion) {
+        this.communityPool = communityPool;
         this.gridPortion = gridPortion;
     }
 
-    public double getCommunityPoolUsed() {
-        return communityPoolUsed;
+    public double getCommunityPool() {
+        return communityPool;
     }
 
-    public void setCommunityPoolUsed(double communityPoolUsed) {
-        this.communityPoolUsed = communityPoolUsed;
+    public void setCommunityPool(double communityPool) {
+        this.communityPool = communityPool;
     }
 
     public double getGridPortion() {
