@@ -1,4 +1,4 @@
-package projectinterface.projectinterface;
+package projectinterface;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;

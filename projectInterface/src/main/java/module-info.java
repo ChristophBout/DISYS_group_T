@@ -1,8 +1,9 @@
 module projectinterface.projectinterface {
     requires javafx.controls;
     requires javafx.fxml;
+    requires java.net.http;
 
 
-    opens projectinterface.projectinterface to javafx.fxml;
-    exports projectinterface.projectinterface;
+    opens projectinterface to javafx.fxml;
+    exports projectinterface;
 }
