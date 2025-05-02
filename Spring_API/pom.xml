@@ -40,6 +40,15 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+		<!-- use JDBC Driver via Maven -->
+		<!-- https://mnvrepository.com/artifact/org.postgresql/postgresql -->
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>42.7.4</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>
@@ -48,6 +57,21 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+
+			<!-- use Flyway Maven Plugin -->
+			<!-- to use it with a database you also need the jdbc driver installed -->
+			<plugin>
+				<groupId>org.flywaydb</groupId>
+				<artifactId>flyway-maven-plugin</artifactId>
+				<version>8.0.0</version>
+				<configuration>
+					<configFiles>
+						<!-- tell flyway where to find the configuration file -->
+						<configFile>flyway.conf</configFile>
+					</configFiles>
+				</configuration>
+			</plugin>
+
 		</plugins>
 	</build>
 
