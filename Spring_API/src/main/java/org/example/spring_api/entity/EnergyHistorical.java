@@ -1,7 +1,6 @@
 package org.example.spring_api.entity;
 
 public class EnergyHistorical {
-
     private double communityProduced; // in kWh
     private double communityUsed;     // in kWh
     private double gridUsed;          // in kWh

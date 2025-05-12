@@ -3,8 +3,6 @@ package projectinterface;
 import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
-import org.json.JSONObject;
-import java.time.LocalDate;
 
 public class HelloController {
 
@@ -25,80 +23,21 @@ public class HelloController {
     @FXML
     private DatePicker endDatePicker;
 
-    private final ApiController apiController = new ApiController();
-
     @FXML
     protected void onRefresh() {
-        communityPoolLabel.setText("Lade...");
-        gridPortionLabel.setText("Lade...");
-
-        try {
-            JSONObject json = apiController.getCurrentEnergyData();
-
-            if (json.has("communityPool")) {
-                communityPoolLabel.setText(json.getDouble("communityPool") + "% used");
-            } else {
-                communityPoolLabel.setText("Keine Daten");
-            }
-
-            if (json.has("gridPortion")) {
-                gridPortionLabel.setText(json.getDouble("gridPortion") + "%");
-            } else {
-                gridPortionLabel.setText("Keine Daten");
-            }
-
-        } catch (Exception e) {
-            communityPoolLabel.setText("Fehler beim Laden");
-            gridPortionLabel.setText("Fehler beim Laden");
-            e.printStackTrace();
-        }
+        // Beispielhafte Platzhalterdaten
+        communityPoolLabel.setText("78.54% used");
+        gridPortionLabel.setText("7.23%");
     }
 
     @FXML
     protected void onShowData() {
-        communityProducedLabel.setText("Lade...");
-        communityUsedLabel.setText("Lade...");
-        gridUsedLabel.setText("Lade...");
+        // Hier könntest du z.B. das ausgewählte Datum verarbeiten
+        // startDatePicker.getValue() + evtl. Uhrzeit ergänzen
+        // Aber aktuell setzen wir nur feste Werte:
 
-        try {
-            LocalDate start = startDatePicker.getValue();
-            LocalDate end = endDatePicker.getValue();
-
-            if (start == null || end == null) {
-                communityProducedLabel.setText("Start- und Enddatum wählen!");
-                communityUsedLabel.setText("");
-                gridUsedLabel.setText("");
-                return;
-            }
-
-            String startString = start + "T00:00";
-            String endString = end + "T23:59";
-
-            JSONObject json = apiController.getHistoricalEnergyData(startString, endString);
-
-            if (json.has("communityProduced")) {
-                communityProducedLabel.setText(json.getDouble("communityProduced") + " kWh");
-            } else {
-                communityProducedLabel.setText("Keine Daten");
-            }
-
-            if (json.has("communityUsed")) {
-                communityUsedLabel.setText(json.getDouble("communityUsed") + " kWh");
-            } else {
-                communityUsedLabel.setText("Keine Daten");
-            }
-
-            if (json.has("gridUsed")) {
-                gridUsedLabel.setText(json.getDouble("gridUsed") + " kWh");
-            } else {
-                gridUsedLabel.setText("Keine Daten");
-            }
-
-        } catch (Exception e) {
-            communityProducedLabel.setText("Fehler beim Laden");
-            communityUsedLabel.setText("Fehler beim Laden");
-            gridUsedLabel.setText("Fehler beim Laden");
-            e.printStackTrace();
-        }
+        communityProducedLabel.setText("143.024 kWh");
+        communityUsedLabel.setText("130.101 kWh");
+        gridUsedLabel.setText("14.75 kWh");
     }
 }
