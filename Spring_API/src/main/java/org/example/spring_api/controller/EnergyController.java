@@ -22,6 +22,6 @@ public class EnergyController {
             @RequestParam String start,
             @RequestParam String end
     ) {
-        return ResponseEntity.ok(new EnergyHistorical(143.024, 130.101, 14.75));
+        return ResponseEntity.ok(new EnergyHistorical(143.024, 130.101, 4.75));
     }
 }
