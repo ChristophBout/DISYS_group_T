@@ -1,10 +1,10 @@
 package org.example;
 
-import org.example.service.UserService;
+import org.example.service.EnergyUserService;
 
 public class EnergyUserMain {
     public static void main(String[] args) throws Exception {
-        UserService user = new UserService("unused", "energy_queue", "localhost");
+        EnergyUserService user = new EnergyUserService("unused", "energy_queue", "localhost");
 
         while (true) {
             user.sendEnergyUsage();  // Send every few seconds

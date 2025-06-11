@@ -4,7 +4,7 @@ import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
 
-public class User {
+public class UsageProducer {
     public static void send(String text, String queueName, String brokerUrl) {
         ConnectionFactory factory = new ConnectionFactory();
         factory.setHost(brokerUrl);

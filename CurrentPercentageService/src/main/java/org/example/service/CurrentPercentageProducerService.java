@@ -1,6 +1,6 @@
 package org.example.service;
 
-import org.example.communication.Producer;
+import org.example.communication.EnergyProducer;
 
 import java.time.LocalDateTime;
 import java.util.HashMap;
@@ -8,13 +8,13 @@ import java.util.Map;
 import java.util.Random;
 import java.util.UUID;
 
-public class ProducerService {
+public class CurrentPercentageProducerService {
     private final String queueName;
     private final String brokerUrl;
     private final String id;
     private static final Random random = new Random();
 
-    public ProducerService(String inDestination, String outDestination, String brokerUrl) {
+    public CurrentPercentageProducerService(String inDestination, String outDestination, String brokerUrl) {
         this.queueName = outDestination;
         this.brokerUrl = brokerUrl;
         this.id = UUID.randomUUID().toString();
@@ -33,7 +33,7 @@ public class ProducerService {
             message.put("datetime", datetime);
 
             String json = toJson(message);
-            Producer.send(json, queueName, brokerUrl);
+            EnergyProducer.send(json, queueName, brokerUrl);
 
             System.out.println("Sent: " + json);
         } catch (Exception e) {

@@ -2,7 +2,7 @@ package org.example;
 
 import org.example.service.EnergyProducerService;
 
-public class EnergyProducerMain {
+public class CurrentPercentageMain {
     public static void main(String[] args) throws Exception {
         EnergyProducerService producer = new EnergyProducerService("unused", "energy_queue", "localhost");
 

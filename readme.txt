@@ -1,1 +1,1 @@
-EnergyProducer kompillieren im Terminal:mvn compile exec:java -Dexec.mainClass="org.example.EnergyProducerMain"EnergyUser kompillieren im Terminal:mvn compile exec:java -Dexec.mainClass="org.example.EnergyUserMain"
+EnergyProducer kompillieren im Terminal:mvn compile exec:java -Dexec.mainClass="org.example.EnergyProducerMain"EnergyUser kompillieren im Terminal:mvn compile exec:java -Dexec.mainClass="org.example.EnergyUserMain"EnergyPercantageService Template implementiertUsageService Template implementiert
