@@ -1,17 +1,13 @@
 package org.example.spring_api.controller;
 
 import org.example.spring_api.entity.*;
-import org.example.spring_api.repository.CurrentPercentageRepository;
-import org.example.spring_api.repository.EnergyUsageRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.sql.Timestamp;
 import java.time.LocalDateTime;
-import java.util.List;
 
 @RestController
 @RequestMapping("/energy")

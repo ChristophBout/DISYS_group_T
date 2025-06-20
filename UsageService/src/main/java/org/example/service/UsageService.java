@@ -62,7 +62,7 @@ public class UsageService extends BaseService {
                 double produced = getValue(conn, "community_produced", hour);
                 double used = getValue(conn, "community_used", hour);
 
-                double fromCommunity = Math.min(kwh, produced - used);
+                double fromCommunity = Math.min(kwh, Math.max(0, produced - used));
                 double fromGrid = Math.max(0, kwh - fromCommunity);
 
                 System.out.printf("[DEBUG] hour: %s | kwh: %.3f | produced: %.3f | used: %.3f | fromCommunity: %.3f | fromGrid: %.3f%n",
@@ -80,7 +80,7 @@ public class UsageService extends BaseService {
                     System.out.println("Updated community_used rows: " + rowsUsed);
                 }
 
-                if (fromGrid > 0) {
+                if (fromGrid > 0.0001) {
                     PreparedStatement updateGrid = conn.prepareStatement("""
                         UPDATE energy_usage
                         SET grid_used = grid_used + ?
