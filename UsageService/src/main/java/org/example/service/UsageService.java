@@ -1,5 +1,7 @@
 package org.example.service;
 
+import com.rabbitmq.client.ConnectionFactory;
+
 import java.sql.*;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
@@ -20,7 +22,6 @@ public class UsageService extends BaseService {
 
     @Override
     protected String executeInternal(String input) {
-        System.out.println(">>> Message angekommen: " + input);
 
         try (Connection conn = connect()) {
             // Expected input format: TYPE,ASSOCIATION,KWH,DATETIME
@@ -90,6 +91,21 @@ public class UsageService extends BaseService {
             }
 
             System.out.println("Processed successfully: " + input);
+
+            try {
+                ConnectionFactory factory = new ConnectionFactory();
+                factory.setHost("localhost");
+                try (com.rabbitmq.client.Connection rmqConnection = factory.newConnection();
+                     com.rabbitmq.client.Channel channel = rmqConnection.createChannel()) {
+
+                    String updateMessage = "update," + hour.toLocalDateTime();
+                    channel.basicPublish("", "update message", null, updateMessage.getBytes());
+                    System.out.println("Sent update message: " + updateMessage);
+                }
+            } catch (Exception e) {
+                System.err.println("Failed to send update message");
+                e.printStackTrace();
+            }
 
         } catch (Exception e) {
             System.err.println("Failed to process: " + input);

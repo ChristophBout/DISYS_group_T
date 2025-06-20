@@ -14,7 +14,6 @@ public class CurrentPercentageConsumer {
         factory.setHost(brokerUrl);
         Connection connection = factory.newConnection();
         Channel channel = connection.createChannel();
-        channel.queueDeclare(queueName, false, false, false, null);
         channel.basicConsume(queueName, true, deliverCallback, consumerTag -> {});
     }
 }

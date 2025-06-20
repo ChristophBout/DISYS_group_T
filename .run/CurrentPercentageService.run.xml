@@ -1,0 +1,10 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="CurrentPercentageService" type="Application" factoryName="Application">
+    <option name="MAIN_CLASS_NAME" value="org.example.CurrentPercentageMain" />
+    <module name="CurrentPercentageService" />
+    <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/CurrentPercentageService" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

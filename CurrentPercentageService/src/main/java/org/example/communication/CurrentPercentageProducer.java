@@ -13,7 +13,6 @@ public class CurrentPercentageProducer {
                 Connection connection = factory.newConnection();
                 Channel channel = connection.createChannel()
         ) {
-            channel.queueDeclare(queueName, false, false, false, null);
             channel.basicPublish("", queueName, null, text.getBytes());
         } catch (Exception e) {
             e.printStackTrace();
