@@ -3,10 +3,7 @@ package org.example.service;
 import org.example.communication.EnergyUser;
 
 import java.time.LocalDateTime;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Random;
-import java.util.UUID;
+import java.util.*;
 
 public class EnergyUserService {
     private final String queueName;
@@ -26,16 +23,9 @@ public class EnergyUserService {
             double kwh = generatePlausibleKwh();
             String datetime = LocalDateTime.now().toString();
 
-            Map<String, Object> message = new HashMap<>();
-            message.put("type", "USER");
-            message.put("association", "COMMUNITY");
-            message.put("kwh", Math.round(kwh * 1000.0) / 1000.0);
-            message.put("datetime", datetime);
+            String message = String.format(Locale.US, "USER,COMMUNITY,%.3f,%s", kwh, datetime);            EnergyUser.send(message, queueName, brokerUrl);
 
-            String json = toJson(message);
-            EnergyUser.send(json, queueName, brokerUrl);
-
-            System.out.println("Sent: " + json);
+            System.out.println(message);
         } catch (Exception e) {
             e.printStackTrace();
         }
