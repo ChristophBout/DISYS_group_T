@@ -10,7 +10,7 @@ public class EnergyCurrent {
     }
 
     public double getCommunityPoolUsed() {
-        return communityPoolUsed;
+        return Math.round(communityPoolUsed * 1000.0) / 1000.0;
     }
 
     public void setCommunityPoolUsed(double communityPoolUsed) {
@@ -18,7 +18,7 @@ public class EnergyCurrent {
     }
 
     public double getGridPortion() {
-        return gridPortion;
+        return Math.round(gridPortion * 1000.0) / 1000.0;
     }
 
     public void setGridPortion(double gridPortion) {

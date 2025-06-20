@@ -65,6 +65,9 @@ public class UsageService extends BaseService {
                 double fromCommunity = Math.min(kwh, produced - used);
                 double fromGrid = Math.max(0, kwh - fromCommunity);
 
+                System.out.printf("[DEBUG] hour: %s | kwh: %.3f | produced: %.3f | used: %.3f | fromCommunity: %.3f | fromGrid: %.3f%n",
+                        hour.toLocalDateTime(), kwh, produced, used, fromCommunity, fromGrid);
+
                 if (fromCommunity > 0) {
                     PreparedStatement updateUsed = conn.prepareStatement("""
                         UPDATE energy_usage

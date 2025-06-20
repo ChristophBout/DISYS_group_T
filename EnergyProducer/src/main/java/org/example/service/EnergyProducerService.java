@@ -24,6 +24,7 @@ public class EnergyProducerService {
             String datetime = LocalDateTime.now().toString();
 
             String message = String.format(Locale.US, "PRODUCER,COMMUNITY,%.3f,%s", kwh, datetime);
+            EnergyProducer.send(message, queueName, brokerUrl);  // <-- fehlt bisher!
             System.out.println(message);
         } catch (Exception e) {
             e.printStackTrace();

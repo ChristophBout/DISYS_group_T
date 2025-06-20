@@ -17,15 +17,35 @@ public class EnergyUsage {
     private double gridUsed;
 
     // Getter & Setter
-    public Timestamp getHour() { return hour; }
-    public void setHour(Timestamp hour) { this.hour = hour; }
+    public Timestamp getHour() {
+        return hour;
+    }
 
-    public double getCommunityProduced() { return communityProduced; }
-    public void setCommunityProduced(double communityProduced) { this.communityProduced = communityProduced; }
+    public void setHour(Timestamp hour) {
+        this.hour = hour;
+    }
 
-    public double getCommunityUsed() { return communityUsed; }
-    public void setCommunityUsed(double communityUsed) { this.communityUsed = communityUsed; }
+    public double getCommunityProduced() {
+        return Math.round(communityProduced * 1000.0) / 1000.0;
+    }
 
-    public double getGridUsed() { return gridUsed; }
-    public void setGridUsed(double gridUsed) { this.gridUsed = gridUsed; }
+    public void setCommunityProduced(double communityProduced) {
+        this.communityProduced = communityProduced;
+    }
+
+    public double getCommunityUsed() {
+        return Math.round(communityUsed * 1000.0) / 1000.0;
+    }
+
+    public void setCommunityUsed(double communityUsed) {
+        this.communityUsed = communityUsed;
+    }
+
+    public double getGridUsed() {
+        return Math.round(gridUsed * 1000.0) / 1000.0;
+    }
+
+    public void setGridUsed(double gridUsed) {
+        this.gridUsed = gridUsed;
+    }
 }

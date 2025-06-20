@@ -13,8 +13,11 @@ public class EnergyProducer {
                 Connection connection = factory.newConnection();
                 Channel channel = connection.createChannel()
         ) {
-            channel.queueDeclare(queueName, false, false, false, null);
+            // Queue dauerhaft machen
+            //channel.queueDeclare(queueName, true, false, false, null);
+
             channel.basicPublish("", queueName, null, text.getBytes());
+            //System.out.println("Sent: " + text);
         } catch (Exception e) {
             e.printStackTrace();
         }

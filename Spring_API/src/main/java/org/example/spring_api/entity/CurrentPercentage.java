@@ -19,9 +19,15 @@ public class CurrentPercentage {
     public Timestamp getHour() { return hour; }
     public void setHour(Timestamp hour) { this.hour = hour; }
 
-    public double getCommunityDepleted() { return communityDepleted; }
+    public double getCommunityDepleted() {
+        return Math.round(communityDepleted * 1000.0) / 1000.0;
+    }
+
     public void setCommunityDepleted(double communityDepleted) { this.communityDepleted = communityDepleted; }
 
-    public double getGridPortion() { return gridPortion; }
+    public double getGridPortion() {
+        return Math.round(gridPortion * 1000.0) / 1000.0;
+    }
+
     public void setGridPortion(double gridPortion) { this.gridPortion = gridPortion; }
 }

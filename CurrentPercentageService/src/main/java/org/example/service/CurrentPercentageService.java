@@ -50,7 +50,12 @@ public class CurrentPercentageService extends CurrentBaseService {
             double used = rs.getDouble("community_used");
             double grid = rs.getDouble("grid_used");
 
-            double communityDepleted = (produced == 0) ? 100.0 : 100.0 * (used / produced);
+            double communityDepleted;
+            if (produced == 0) {
+                communityDepleted = (used == 0) ? 0.0 : 100.0; // Wenn beides 0: 0%, sonst: 100%
+            } else {
+                communityDepleted = 100.0 * (used / produced);
+            }
             double gridPortion = (used + grid == 0) ? 0.0 : 100.0 * (grid / (used + grid));
 
             PreparedStatement insert = conn.prepareStatement("""

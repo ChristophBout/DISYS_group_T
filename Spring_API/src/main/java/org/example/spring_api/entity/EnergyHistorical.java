@@ -12,7 +12,7 @@ public class EnergyHistorical {
     }
 
     public double getCommunityProduced() {
-        return communityProduced;
+        return Math.round(communityProduced * 1000.0) / 1000.0;
     }
 
     public void setCommunityProduced(double communityProduced) {
@@ -20,7 +20,7 @@ public class EnergyHistorical {
     }
 
     public double getCommunityUsed() {
-        return communityUsed;
+        return Math.round(communityUsed * 1000.0) / 1000.0;
     }
 
     public void setCommunityUsed(double communityUsed) {
@@ -28,7 +28,7 @@ public class EnergyHistorical {
     }
 
     public double getGridUsed() {
-        return gridUsed;
+        return Math.round(gridUsed * 1000.0) / 1000.0;
     }
 
     public void setGridUsed(double gridUsed) {
