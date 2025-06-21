@@ -28,6 +28,13 @@ public class HelloController {
     private final ApiController apiController = new ApiController();
 
     @FXML
+    public void initialize() {
+        // Auto-refresh on load
+        onRefresh();
+        onShowData();
+    }
+
+    @FXML
     protected void onRefresh() {
         communityPoolLabel.setText("Lade...");
         gridPortionLabel.setText("Lade...");

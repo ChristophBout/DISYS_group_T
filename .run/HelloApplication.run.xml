@@ -2,7 +2,6 @@
   <configuration default="false" name="HelloApplication" type="Application" factoryName="Application" nameIsGenerated="true">
     <option name="MAIN_CLASS_NAME" value="projectinterface.HelloApplication" />
     <module name="projectInterface" />
-    <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/projectInterface" />
     <extension name="coverage">
       <pattern>
         <option name="PATTERN" value="projectinterface.*" />

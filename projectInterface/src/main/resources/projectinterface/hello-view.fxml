@@ -3,46 +3,88 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 
 <VBox xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
       fx:controller="projectinterface.HelloController"
-      spacing="10">
+      spacing="15"
+      alignment="CENTER">
 
   <padding>
-    <Insets top="15" right="15" bottom="15" left="15"/>
+    <Insets top="15" right="25" bottom="15" left="25"/>
   </padding>
 
-  <GridPane hgap="10" vgap="5">
-    <Label text="Community Pool"/>
-    <Label fx:id="communityPoolLabel" GridPane.columnIndex="1"/>
+  <!-- Community Info -->
+  <HBox alignment="CENTER">
+    <GridPane hgap="10" vgap="5">
+      <maxWidth>
+        <Region fx:constant="USE_PREF_SIZE"/>
+      </maxWidth>
+      <HBox.margin>
+        <Insets top="0" right="0" bottom="0" left="57"/>
+      </HBox.margin>
 
-    <Label text="Grid Portion" GridPane.rowIndex="1"/>
-    <Label fx:id="gridPortionLabel" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
-  </GridPane>
+      <columnConstraints>
+        <ColumnConstraints halignment="RIGHT" minWidth="140"/>
+        <ColumnConstraints halignment="LEFT"  minWidth="200"/>
+      </columnConstraints>
 
-  <Button text="refresh" onAction="#onRefresh"/>
+      <Label text="Community Pool"/>
+      <Label fx:id="communityPoolLabel" GridPane.columnIndex="1"/>
 
-  <GridPane hgap="10" vgap="5">
-    <Label text="Start"/>
-    <DatePicker fx:id="startDatePicker" GridPane.columnIndex="1"/>
+      <Label text="Grid Portion" GridPane.rowIndex="1"/>
+      <Label fx:id="gridPortionLabel" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+    </GridPane>
+  </HBox>
+
+  <!-- Refresh Button -->
+  <HBox alignment="CENTER">
+    <Button text="refresh" onAction="#onRefresh" maxWidth="120"/>
+  </HBox>
+
+  <!-- Date Selection -->
+  <GridPane hgap="10" vgap="10" alignment="CENTER" maxWidth="400">
+    <columnConstraints>
+      <ColumnConstraints halignment="RIGHT"/>
+      <ColumnConstraints hgrow="ALWAYS"/>
+    </columnConstraints>
+
+    <Label text="Start" GridPane.rowIndex="0"/>
+    <DatePicker fx:id="startDatePicker" GridPane.columnIndex="1" GridPane.rowIndex="0" maxWidth="Infinity"/>
 
     <Label text="End" GridPane.rowIndex="1"/>
-    <DatePicker fx:id="endDatePicker" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+    <DatePicker fx:id="endDatePicker" GridPane.columnIndex="1" GridPane.rowIndex="1" maxWidth="Infinity"/>
   </GridPane>
 
-  <Button text="show data" onAction="#onShowData"/>
+  <!-- Show Data Button -->
+  <HBox alignment="CENTER">
+    <Button text="show data" onAction="#onShowData" maxWidth="120"/>
+  </HBox>
 
-  <!-- Neuer Block für Ausgaben -->
-  <GridPane hgap="10" vgap="5">
-    <Label text="Community produced"/>
-    <Label fx:id="communityProducedLabel" GridPane.columnIndex="1"/>
+  <!-- Output Fields -->
+  <HBox alignment="CENTER">
+    <GridPane hgap="10" vgap="10">
+      <maxWidth>
+        <Region fx:constant="USE_PREF_SIZE"/>
+      </maxWidth>
+      <HBox.margin>
+        <Insets top="0" right="0" bottom="0" left="57"/>
+      </HBox.margin>
 
-    <Label text="Community used" GridPane.rowIndex="1"/>
-    <Label fx:id="communityUsedLabel" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+      <columnConstraints>
+        <ColumnConstraints halignment="RIGHT" minWidth="140"/>
+        <ColumnConstraints halignment="LEFT"  minWidth="200"/>
+      </columnConstraints>
 
-    <Label text="Grid used" GridPane.rowIndex="2"/>
-    <Label fx:id="gridUsedLabel" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
-  </GridPane>
+      <Label text="Community produced"/>
+      <Label fx:id="communityProducedLabel" GridPane.columnIndex="1"/>
+
+      <Label text="Community used" GridPane.rowIndex="1"/>
+      <Label fx:id="communityUsedLabel" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+      <Label text="Grid used" GridPane.rowIndex="2"/>
+      <Label fx:id="gridUsedLabel"     GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+    </GridPane>
+  </HBox>
+
 </VBox>
